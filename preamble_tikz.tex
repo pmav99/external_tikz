@@ -1,0 +1,99 @@
+\documentclass[a4paper,12pt,fleqn,openany,twoside]{book}
+
+\usepackage{xltxtra}
+\usepackage{autoxgreek}
+
+\usepackage{amsmath}
+\usepackage[math-style=ISO]{unicode-math}
+\usepackage{mathtools}
+
+\newtagform{brackets}{[}{]}
+\usetagform{brackets}
+
+% \newfontfamily\greekfont[Mapping=tex-text]{Minion Pro} % to suppress a warning message about changed references.
+\setmainfont[Kerning=On,Mapping=tex-text]{Minion Pro}
+\setsansfont[Mapping=tex-text]{Myriad Pro} % sans font 
+\setmonofont[Mapping=tex-text]{Consolas} % monospace font 
+\setmathfont{XITS Math}
+\setmathfont[range=\ell]{Asana Math}
+
+
+\usepackage{booktabs}
+\usepackage{siunitx}
+\sisetup{table-align-text-post = false,table-format = 1.2}
+
+\usepackage{import}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.3}
+\usepackage{pgfplotstable}
+
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathmorphing}
+\usetikzlibrary{intersections}
+
+\pgfdeclaredecoration{discontinuity}{start}{
+  \state{start}[width=0.5\pgfdecoratedinputsegmentremainingdistance-0.5\pgfdecorationsegmentlength,next state=up from center]
+  {}
+  \state{up from center}[width=+.5\pgfdecorationsegmentlength, next state=big down]
+  {
+    \pgfpathlineto{\pgfpointorigin}
+    \pgfpathlineto{\pgfqpoint{.25\pgfdecorationsegmentlength}{2\pgfdecorationsegmentamplitude}}
+  }
+  \state{big down}[next state=center finish]
+  {
+    \pgfpathlineto{\pgfqpoint{.25\pgfdecorationsegmentlength}{-2\pgfdecorationsegmentamplitude}}
+  }
+  \state{center finish}[width=0.5\pgfdecoratedinputsegmentremainingdistance, next state=do nothing]{
+    \pgfpathlineto{\pgfpointorigin}
+    \pgfpathlineto{\pgfpointdecoratedinputsegmentlast}
+  }
+  \state{do nothing}[width=\pgfdecorationsegmentlength,next state=do nothing]{
+    \pgfpathlineto{\pgfpointdecoratedinputsegmentlast}
+  }
+  \state{final}
+  {
+    \pgfpathlineto{\pgfpointdecoratedpathlast}
+  }
+}
+
+\tikzset{
+  random1/.style={decorate,decoration={random steps,segment length=2pt,amplitude=1pt}},
+  random2/.style={decorate,decoration={random steps,segment length=3pt,amplitude=2pt}},
+  random3/.style={decorate,decoration={random steps,segment length=2pt,amplitude=2pt}},
+%
+  empty/.style={minimum size=0mm,inner sep=0,outer sep=0},
+% dis/.style={decoration={zigzag,segment length=11pt, amplitude=6pt},decorate},
+  disc/.style={decoration={discontinuity}},
+  axones/.style={semithick,->},
+%
+  black5/.style={fill=black!5},
+  black10/.style={fill=black!10},
+  black15/.style={fill=black!15},
+  black20/.style={fill=black!20},
+  black25/.style={fill=black!25},
+  black30/.style={fill=black!30},
+  black35/.style={fill=black!35},
+  black40/.style={fill=black!40},
+  black45/.style={fill=black!45},
+  black50/.style={fill=black!50},
+%
+  dimen/.style={<->,>=stealth,thin,every rectangle node/.style={midway}},
+  dimlines/.style={thin, dotted},
+  circ/.style ={minimum size=1mm,inner sep=0,outer sep=0,circle,fill},
+%
+  bar/.style={ultra thick,black40},
+  concrete/.style={very thick,black5},
+  stress/.style={thick,black15},
+}
+
+
+\begin{document}
+
+
+\end{document}
